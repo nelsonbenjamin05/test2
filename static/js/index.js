@@ -31,30 +31,32 @@
       console.log("onConnectionLost:"+responseObject.errorMessage);
     }
   }
-
-function sensora(){
+  
+  function sensora(){
 	var msg="1";
     message = new Paho.MQTT.Message(msg);
     message.destinationName = "nelsonbenjamin05@gmail.com/ts";
-    client.send(message);		
-}
-
-function sensorb(){
-	var msg="2";
-    message = new Paho.MQTT.Message(msg);
-    message.destinationName = "nelsonbenjamin05@gmail.com/ts";
-    client.send(message);		
-}
-
-function comprobar(arg){
+    client.send(message);
+  }
+	
+  function sensorb(){
+		var msg="2";
+		message = new Paho.MQTT.Message(msg);
+		message.destinationName = "nelsonbenjamin05@gmail.com/ts";
+		client.send(message);		
+  }
+	
+  function comprobar(arg){
 	var arg1=arg.split("=");
-	if arg1[0]=='1':
+	if (arg1[0]=='1'){
 		document.getElementById("hist1").innerHTML+=lg[1]+"<br>";
-	if arg1[0]=='2':
+		}
+	if (arg1[0]=='2'){
 		document.getElementById("hist2").innerHTML+=lg[1]+"<br>";
-}
-
+		}
+  }
+  
   function onMessageArrived(message){
-	  var ms=message.payloadString;
-	comprobar(ms);
+		var ms=message.payloadString;
+		comprobar(ms);
   } 
