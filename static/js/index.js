@@ -57,4 +57,4 @@ function comprobar(arg){
   function onMessageArrived(message){
 	  var ms=message.payloadString;
 	comprobar(ms);
-  } 
+  }  
