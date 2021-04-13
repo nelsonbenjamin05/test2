@@ -32,29 +32,25 @@
     }
   }
 
-function entrar(){
+function sensor1(){
 	msg="1";
     message = new Paho.MQTT.Message(msg);
     message.destinationName = "nelsonbenjamin05@gmail.com/ts";
     client.send(message);		
 }
 
-function historial(){
-	msg="3";
+function sensor2(){
+	msg="2";
     message = new Paho.MQTT.Message(msg);
     message.destinationName = "nelsonbenjamin05@gmail.com/ts";
-    client.send(message);
+    client.send(message);		
 }
 
 function comprobar(arg){
-	var lg=arg.split("=");
-	if(lg[0] === '1')
-		document.getElementById("s1").innerHTML=lg[1];
-		document.getElementById("s2").innerHTML=lg[2];
-	if(lg[0] === '4')
-		document.getElementById("aviso").innerHTML=lg[1];
-	if(lg[0] === '5')
-		document.getElementById("verhist").innerHTML+=lg[1]+"<br>";
+	if arg[0]=='1':
+		document.getElementById("hist1").innerHTML+=message.payloadString;
+	if arg[0]=='2':
+		document.getElementById("hist2").innerHTML+=message.payloadString;
 }
 
   function onMessageArrived(message){
