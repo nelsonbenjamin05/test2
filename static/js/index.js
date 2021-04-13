@@ -32,14 +32,14 @@
     }
   }
 
-function sensor1(){
+function sensora(){
 	var msg="1";
     message = new Paho.MQTT.Message(msg);
     message.destinationName = "nelsonbenjamin05@gmail.com/ts";
     client.send(message);		
 }
 
-function sensor2(){
+function sensorb(){
 	var msg="2";
     message = new Paho.MQTT.Message(msg);
     message.destinationName = "nelsonbenjamin05@gmail.com/ts";
