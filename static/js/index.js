@@ -33,27 +33,28 @@
   }
 
 function sensor1(){
-	msg="1";
+	var msg="1";
     message = new Paho.MQTT.Message(msg);
     message.destinationName = "nelsonbenjamin05@gmail.com/ts";
     client.send(message);		
 }
 
 function sensor2(){
-	msg="2";
+	var msg="2";
     message = new Paho.MQTT.Message(msg);
     message.destinationName = "nelsonbenjamin05@gmail.com/ts";
     client.send(message);		
 }
 
 function comprobar(arg){
-	if arg[0]=='1':
+	var arg1=arg.split("=");
+	if arg1[0]=='1':
 		document.getElementById("hist1").innerHTML+=message.payloadString;
-	if arg[0]=='2':
+	if arg1[0]=='2':
 		document.getElementById("hist2").innerHTML+=message.payloadString;
 }
 
   function onMessageArrived(message){
 	  var ms=message.payloadString;
 	comprobar(ms);
-  }  
+  }
