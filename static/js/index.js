@@ -17,7 +17,7 @@
   function onConnect(){
     console.log("Conectado...");
     client.subscribe("nelsonbenjamin05@gmail.com/ts1");
-	message = new Paho.MQTT.Message("hola web");
+	message = new Paho.MQTT.Message("hola ");
     message.destinationName = "nelsonbenjamin05@gmail.com/ts";
     client.send(message);
   }
@@ -57,4 +57,4 @@ function comprobar(arg){
   function onMessageArrived(message){
 	  var ms=message.payloadString;
 	comprobar(ms);
-  }  
+  } 
